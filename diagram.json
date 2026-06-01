@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Subhronil Haldar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": -4.76, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -106.9, "left": -173, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -156.8,
+      "left": -42.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 2.4,
+      "left": 193.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 246.2,
+      "left": 9.6,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 54, "left": -207.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 63.6,
+      "left": -274.6,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v220.8", "h144" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v134.4", "h134" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v96", "h124" ] ],
+    [ "bz1:2", "esp:26", "green", [ "v48", "h-221.2" ] ],
+    [ "bz1:1", "esp:GND.1", "green", [ "v86.4", "h-211.2" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-19.2", "v288" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-19.2", "v336.1" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-38.4", "v105.8", "h240", "v86.4" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-9.6", "v77.1", "h172.8", "v9.6" ] ],
+    [ "btn1:1.l", "esp:27", "green", [ "h-19.2", "v-124.8" ] ],
+    [ "btn1:2.l", "esp:GND.1", "green", [ "h0" ] ],
+    [ "led2:C", "esp:18", "green", [ "v9.6", "h355.6" ] ],
+    [ "led2:A", "esp:GND.1", "green", [ "v0" ] ],
+    [ "led1:C", "esp:19", "green", [ "v57.6", "h317.2", "v-48" ] ],
+    [ "led1:A", "esp:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
